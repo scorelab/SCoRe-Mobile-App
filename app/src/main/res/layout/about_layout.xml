@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <!--<TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:background="#FFF"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="SCoRe Lab"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="54sp" />-->
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/user_img_set"
+            android:elevation="20dp"
+            app:srcCompat="@drawable/scorecover" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:elevation="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="20dp"
+                android:text="The Sustainable Computing Research Group (SCoRe) has conducted research covering various aspects of sensor networks, embeded systems, digital forensic, information security, mobile applications, cloud, blockchain and software tools. The goal of our research is to generate computing solutions through identifying low cost methodologies and strategies that lead to sustainability.\n\nAt present, the SCoRe group is at a stage of its evolution in which it has been able to secure high donor confidence as evidenced by simultaneous foreign funded projects.\n\nSCoRe group studies and produces sustainable computing solutions with respect to low cost computing and communication foundations in the developing and emerging regions in the world. We have developed several affordable and sustainable ICT solutions specially focusing the requirements in the developing region."
+                android:textColor="#000"
+                android:textSize="24sp" />
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
