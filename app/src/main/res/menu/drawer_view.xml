@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_about"
+            android:checked="true"
+            android:icon="@drawable/info_mat"
+            android:title="About SCoreLab" />
+        <item
+            android:id="@+id/nav_repo"
+            android:icon="@drawable/books_mat"
+            android:title="Repositories" />
+        <item
+            android:id="@+id/nav_web"
+            android:icon="@drawable/web"
+            android:title="Website" />
+        <item
+            android:id="@+id/nav_github"
+            android:icon="@drawable/github_circle"
+            android:title="Github" />
+        <!--<item
+            android:id="@+id/nav_contact_email"
+            android:icon="@drawable/phone"
+            android:title="Contact (Email)" />-->
+
+        <item
+            android:id="@+id/nav_contact_email"
+            android:icon="@drawable/email"
+            android:title="Contact (Email)" />
+
+        <item
+            android:id="@+id/nav_contact_gitter"
+            android:icon="@drawable/phone"
+            android:title="Contact (Gitter)" />
+
+    </group>
+
+</menu>
