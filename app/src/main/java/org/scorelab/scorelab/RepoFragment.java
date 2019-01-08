@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class aboutFragment extends Fragment {
+public class RepoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.about_layout, container, false);
+        return inflater.inflate(R.layout.repo_layout, container, false);
     }
 
     @Override

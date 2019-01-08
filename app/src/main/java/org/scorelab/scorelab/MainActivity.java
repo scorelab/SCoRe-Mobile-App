@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerButton = (Button) findViewById(R.id.drawer_button);
@@ -43,14 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        menuItem.setChecked(true);
+//                        menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         switch (menuItem.getItemId()) {
                             case R.id.nav_about:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
                                 return true;
                             case R.id.nav_repo:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new repoFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new RepoFragment()).commit();
                                 return true;
                             case R.id.nav_web:
                                 String urlString = "http://www.scorelab.org/";
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 return false;
                             default:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
                                 return true;
                         }
                     }
