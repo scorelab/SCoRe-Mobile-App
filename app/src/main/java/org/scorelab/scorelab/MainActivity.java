@@ -4,21 +4,16 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerButton = (Button) findViewById(R.id.drawer_button);
@@ -38,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mDrawerLayout.openDrawer(Gravity.START);
+                        mDrawerLayout.openDrawer(GravityCompat.START);
                     }
                 }
         );
@@ -48,14 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        menuItem.setChecked(true);
+//                        menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         switch (menuItem.getItemId()) {
                             case R.id.nav_about:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
                                 return true;
                             case R.id.nav_repo:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new repoFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new RepoFragment()).commit();
                                 return true;
                             case R.id.nav_web:
                                 String urlString = "http://www.scorelab.org/";
@@ -114,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 return false;
                             default:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new aboutFragment()).commit();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_main_Activity, new AboutFragment()).commit();
                                 return true;
                         }
                     }
