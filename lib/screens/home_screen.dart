@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.bookmark),
+            icon: Icon(FontAwesomeIcons.github),
             title: Text("Repositories"),
           ),
           BottomNavigationBarItem(
