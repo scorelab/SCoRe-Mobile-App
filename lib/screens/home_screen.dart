@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Image.asset("assets/images/score.png"),
         title: Text("Score Mobile"),
       ),
       body: _screens[_selectedIndex],
