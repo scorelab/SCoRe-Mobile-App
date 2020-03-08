@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart';
+import 'package:score_app/screens/repository_screen.dart';
 import 'package:score_app/utils/score.dart';
 
 class RepositoriesScreen extends StatefulWidget {
@@ -34,8 +35,8 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
         _isLoading = true;
       });
     }
-    var result =
-        await get("https://api.github.com/orgs/scorelab/repos?page=$_page&client_id=${Score.CLIENT_ID}&client_secret=${Score.CLIENT_SECRET}");
+    var result = await get(
+        "https://api.github.com/orgs/scorelab/repos?page=$_page&client_id=${Score.CLIENT_ID}&client_secret=${Score.CLIENT_SECRET}");
     setState(() {
       _isLoading = false;
       _responses.addAll(json.decode(result.body));
@@ -71,9 +72,21 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
               softWrap: false,
             ),
             trailing: Text(_responses[index]['language'] ?? ""),
+            onTap: () {
+              onClickTile(_responses[index]);
+            },
           );
         },
       ),
     );
+  }
+
+  void onClickTile(dynamic repository) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => RepositoryScreen(
+                  repository: repository,
+                )));
   }
 }
