@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   font_awesome_flutter:
   cached_network_image:
+  url_launcher:
   http:
 
 dev_dependencies:
