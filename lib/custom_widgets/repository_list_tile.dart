@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:score_app/screens/repository_screen.dart';
+import 'package:score_app/screens/repositories/repository_screen.dart';
 
 class RepositoryListTile extends StatelessWidget {
   final dynamic details;

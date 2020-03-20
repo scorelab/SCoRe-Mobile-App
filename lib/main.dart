@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:score_app/screens/splash_screen.dart';
+import 'package:score_app/screens/splash/splash_screen.dart';
 import 'package:score_app/states/config_state.dart';
 
 void main() {

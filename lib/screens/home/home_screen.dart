@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:score_app/screens/chat_screen.dart';
-import 'package:score_app/screens/repositories_screen.dart';
+import 'package:score_app/screens/chat/chat_screen.dart';
+import 'package:score_app/screens/repositories/repositories_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
