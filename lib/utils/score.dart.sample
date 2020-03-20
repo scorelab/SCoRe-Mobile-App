@@ -1,0 +1,7 @@
+class Score {
+  static const CLIENT_ID = "client id";
+  static const CLIENT_SECRET = "client secret";
+}
+
+// to get these.got to 
+// https://github.com/settings/developers
