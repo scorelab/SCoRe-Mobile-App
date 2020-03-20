@@ -1,9 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart';
-import 'package:score_app/screens/repository_screen.dart';
+import 'package:score_app/custom_widgets/repository_list_tile.dart';
 import 'package:score_app/utils/score.dart';
 
 class RepositoriesScreen extends StatefulWidget {
@@ -62,31 +61,9 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
               ),
             );
           }
-          return ListTile(
-            leading: Icon(FontAwesomeIcons.gitAlt),
-            title: Text(_responses[index]['name']),
-            subtitle: Text(
-              _responses[index]['description'] ?? "",
-              overflow: TextOverflow.fade,
-              maxLines: 2,
-              softWrap: false,
-            ),
-            trailing: Text(_responses[index]['language'] ?? ""),
-            onTap: () {
-              onClickTile(_responses[index]);
-            },
-          );
+          return RepositoryListTile(details: _responses[index]);
         },
       ),
     );
-  }
-
-  void onClickTile(dynamic repository) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => RepositoryScreen(
-                  repository: repository,
-                )));
   }
 }
