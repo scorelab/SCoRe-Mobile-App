@@ -1,0 +1,29 @@
+name: Score Lab mobile app
+on: [push, pull_request]
+jobs:  
+  flutter_app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'dev' or 'beta'
+      - name: flutter build
+        working-directory: ./mobile
+        run: |
+          touch lib/utils/score.dart
+          echo "class Score {" >> lib/utils/score.dart
+          echo "static const CLIENT_ID = \"${{secrets.CLIENT_ID}}\";" >> lib/utils/score.dart
+          echo "static const CLIENT_SECRET = \"${{secrets.CLIENT_SECRET}}\";" >> lib/utils/score.dart
+          echo "}" >> lib/utils/score.dart
+          flutter pub get
+          flutter test
+          flutter build apk
+      # - name: upload artifact
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: flutter apk
+      #     path: build/app/outputs/apk/debug/
