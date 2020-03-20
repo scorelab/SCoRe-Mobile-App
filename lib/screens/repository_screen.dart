@@ -48,7 +48,9 @@ class _RepositoryScreenState extends State<RepositoryScreen> {
             ],
           ),
           body: Container(
+            padding: EdgeInsets.all(8),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
                   height: 8,
@@ -76,6 +78,88 @@ class _RepositoryScreenState extends State<RepositoryScreen> {
                 ),
                 SizedBox(height: 16),
                 Text(result['description']),
+                Divider(),
+                SizedBox(height: 16),
+                Text("OWNER", style: TextStyle(fontSize: 16)),
+                ListTile(
+                  title: Text(result["owner"]["login"]),
+                  leading: ClipOval(
+                    child: CachedNetworkImage(
+                        fit: BoxFit.cover,
+                        imageUrl: result['owner']["avatar_url"]),
+                  ),
+                ),
+                Divider(),
+                SizedBox(height: 16),
+                Text("CONTRIBUTORS", style: TextStyle(fontSize: 16)),
+                FutureBuilder(
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      if (snapshot.hasData) {
+                        return Wrap(
+                          direction: Axis.horizontal,
+                          children: json
+                              .decode(snapshot.data.body)
+                              .map<Widget>(
+                                (contributor) => Container(
+                                  margin: EdgeInsets.all(5),
+                                  child: Tooltip(message: contributor["login"],child: ClipOval(
+                                    child: CachedNetworkImage(
+                                      imageUrl: contributor["avatar_url"],
+                                      fit: BoxFit.cover,
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                  ),),
+                                ),
+                              )
+                              .toList(),
+                        );
+                      } else {
+                        return Container();
+                      }
+                    } else if (snapshot.connectionState ==
+                        ConnectionState.waiting) {
+                      return Wrap(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.all(5),
+                            child: ClipOval(
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(5),
+                            child: ClipOval(
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(5),
+                            child: ClipOval(
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                  future: get(result["contributors_url"]),
+                ),
               ],
             ),
           ),
