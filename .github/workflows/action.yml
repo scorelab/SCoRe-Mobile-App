@@ -12,7 +12,6 @@ jobs:
         with:
           channel: 'stable' # or: 'dev' or 'beta'
       - name: flutter build
-        working-directory: ./mobile
         run: |
           touch lib/utils/score.dart
           echo "class Score {" >> lib/utils/score.dart

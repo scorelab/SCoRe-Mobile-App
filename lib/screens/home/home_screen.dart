@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:score_app/screens/chat/chat_screen.dart';
 import 'package:score_app/screens/repositories/repositories_screen.dart';
+import 'package:score_app/screens/settings/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var _screens = [
     RepositoriesScreen(),
     ChatScreen(),
+    SettingScreen(),
   ];
 
   var _selectedIndex = 0;
@@ -39,6 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.chat_bubble_outline),
             title: Text("Chat"),
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.cog),
+            title: Text("Settings"),
           ),
         ],
         currentIndex: _selectedIndex,
