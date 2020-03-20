@@ -27,6 +27,11 @@ dependencies:
   cached_network_image:
   url_launcher:
   http:
+  flutter_bloc:
+  provider:
+  fluro:
+  dio:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
